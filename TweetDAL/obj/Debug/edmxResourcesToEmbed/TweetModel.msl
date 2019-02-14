@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TweeterAppModelStoreContainer" CdmEntityContainer="TweeterAppEntities">
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="TweeterAppModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Joined" ColumnName="Joined" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tweets">
+      <EntityTypeMapping TypeName="TweeterAppModel.Tweet">
+        <MappingFragment StoreEntitySet="Tweet">
+          <ScalarProperty Name="TweetId" ColumnName="TweetId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CreatPerson" FunctionName="TweeterAppModel.Store.CreatPerson" />
+    <FunctionImportMapping FunctionImportName="Fun_SP_CreatPerson" FunctionName="TweeterAppModel.Store.CreatPerson" />
+    <FunctionImportMapping FunctionImportName="GetPerson" FunctionName="TweeterAppModel.Store.GetPerson" />
+    <FunctionImportMapping FunctionImportName="Fun_SP_GetPerson" FunctionName="TweeterAppModel.Store.GetPerson" />
+    <FunctionImportMapping FunctionImportName="SaveTweet" FunctionName="TweeterAppModel.Store.SaveTweet" />
+    <FunctionImportMapping FunctionImportName="Fun_SP_SaveTweet" FunctionName="TweeterAppModel.Store.SaveTweet" />
+    <FunctionImportMapping FunctionImportName="GetTweet" FunctionName="TweeterAppModel.Store.GetTweet">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TweeterAppModel.GetTweet_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Fun_SP_GetTweet" FunctionName="TweeterAppModel.Store.GetTweet">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TweeterAppModel.Fun_SP_GetTweet_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

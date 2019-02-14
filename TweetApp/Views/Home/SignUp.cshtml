@@ -1,0 +1,48 @@
+﻿@model TweetApp.Models.PersonModel
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<h2>SignUp</h2>
+<div class="container">
+
+    <h2>Join My Twitter Clone</h2>
+    @using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
+    {
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label for="txtUserName" class="control-label col-sm-2">UserName</label>
+                <div class="col-sm-10">
+                    @*<input id="txtUserName" type="text" name="UserName" class="form-control" required />*@
+                    @Html.TextBoxFor(m => m.UserId, htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="txtPassword" class="control-label col-sm-2">Password</label>
+                <div class="col-sm-10">
+                    @*<input id="txtPassword" type="text" name="Password" class="form-control" required />*@
+                    @Html.TextBoxFor(m => m.Password, htmlAttributes: new { @class = "form-control", @type = "password" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="txtFullName" class="control-label col-sm-2">Full Name</label>
+                <div class="col-sm-10">
+                    @*<input id="txtFullName" type="text" name="Password" class="form-control" required />*@
+                    @Html.TextBoxFor(m => m.FullName, htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="txtEmail" class="control-label col-sm-2">Email</label>
+                <div class="col-sm-10">
+                    @*<input id="txtEmail" type="text" name="Password" class="form-control" required />*@
+                    @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control", @type = "email" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input id="btnSignUp" type="submit" class="btn btn-primary" value="SignUp" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

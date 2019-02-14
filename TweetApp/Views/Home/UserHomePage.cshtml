@@ -1,0 +1,135 @@
+﻿@model TweetApp.Models.PersonModel
+@{
+    ViewBag.Title = "UserHomePage";
+}
+
+<div class="container">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-6 rowStyle">
+                <h2>My Twitter Clone</h2>
+            </div>
+            <div class="col-sm-6 text-right rowStyle">
+                Welcome <span id="spanUserId">@Convert.ToString(Session["UserId"])!</span>&nbsp;&nbsp;
+                <a>Home</a> |
+                <a>Profile</a> |
+                <a>SignOut</a>
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-4 rowStyle">
+                <h4>Follow</h4>
+                <input id="txtSearchPerson" class="form-control glyphicon-search" placeholder="Search Person" />
+            </div>
+            <div class="col-sm-8">
+                <h4>What are you doing?</h4>
+                @using (Html.BeginForm("SignUp", "Home", FormMethod.Post))
+                {
+                    <div class="rowStyle">
+                        <input id="txtComments" type="text" class="form-control" style="height:100px" />
+                    </div>
+                    <div class="text-right rowStyle">
+                        <input id="btnComments" type="button" value="Update" class="btn btn-primary" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-4">
+                <p><a href="#">0</a>&nbsp;Tweets</p>
+                <p><a href="#">0</a>&nbsp;Following</p>
+                <p><a href="#">0</a>&nbsp;Followers</p>
+            </div>
+            <div class="col-sm-8">
+
+                <p>Tweets</p>
+                <div class="rowStyle">
+                    <input id="txtTweetsInfo" type="text" class="form-control" style="height:300px" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .rowStyle {
+        padding: 10px;
+        display: block;
+    }
+
+        .rowStyle input {
+            max-width: none;
+            max-height: none;
+            /*height: !important auto;*/
+        }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        MapTweets();
+
+        $("#btnComments").click(function () {
+            var tweetMsg = $('#txtComments').val();
+            var userId = '@Convert.ToString(Session["UserId"])';
+            var urlString = '@Url.Action("SaveTweet","Home")';
+            var dataString = '{"userId":"' + userId + '", "msg": "' + tweetMsg + '" }';
+
+            if (MethodCall(urlString, dataString)) {
+                alert("Your Tweet Posted Now");
+            }
+            else
+            {
+
+            }
+
+            @*$.ajax({
+                type: 'POST',
+                url: '@Url.Action("SaveTweet","Home")',
+                data: '{"userId":"' + userId + '", "msg": "' + tweetMsg + '" }',
+                contentType:"application/json; charset=utf-8",
+                dataType: 'json',
+                success: function (data) {
+                    if (data.Result = true)
+                        alert("Your Tweet Posted Now");
+                },
+                error: function (e) {
+
+                }
+            });*@
+
+        });
+
+        function MethodCall(urlString, dataString)
+        {
+            $.ajax({
+                type: 'POST',
+                url: urlString,
+                data: dataString,
+                contentType:"application/json; charset=utf-8",
+                dataType: 'json',
+                success: function (data) {
+                    return data.Result;
+                },
+                error: function (e) {
+                    return false;
+                }
+            });
+        }
+
+        function MapTweets()
+        {
+            var tweetText = $('#txtTweetsInfo');
+                @foreach (var item in ViewBag.TweetInfo)
+                {
+                    @:tweetText.val(item.UserId + " " +item.Message+ " " +item.Created);
+                }
+        }
+
+    });
+
+</script>

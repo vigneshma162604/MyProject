@@ -1,0 +1,10 @@
+C:\Users\Administrator\documents\visual studio 2017\Projects\TweetApp\TweetBL\bin\Release\TweetBL.dll
+C:\Users\Administrator\documents\visual studio 2017\Projects\TweetApp\TweetBL\bin\Release\TweetBL.pdb
+C:\Users\Administrator\documents\visual studio 2017\Projects\TweetApp\TweetBL\bin\Release\TweetDAL.dll
+C:\Users\Administrator\documents\visual studio 2017\Projects\TweetApp\TweetBL\bin\Release\EntityFramework.dll
+C:\Users\Administrator\documents\visual studio 2017\Projects\TweetApp\TweetBL\bin\Release\TweetDAL.pdb
+C:\Users\Administrator\documents\visual studio 2017\Projects\TweetApp\TweetBL\bin\Release\TweetDAL.dll.config
+C:\Users\Administrator\documents\visual studio 2017\Projects\TweetApp\TweetBL\bin\Release\EntityFramework.xml
+C:\Users\Administrator\documents\visual studio 2017\Projects\TweetApp\TweetBL\obj\Release\TweetBL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\documents\visual studio 2017\Projects\TweetApp\TweetBL\obj\Release\TweetBL.dll
+C:\Users\Administrator\documents\visual studio 2017\Projects\TweetApp\TweetBL\obj\Release\TweetBL.pdb
